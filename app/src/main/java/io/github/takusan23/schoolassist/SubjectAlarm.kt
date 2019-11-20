@@ -31,7 +31,7 @@ class SubjectAlarm(val context: Context?) {
             val calendar = Calendar.getInstance().apply {
                 timeInMillis = System.currentTimeMillis()
                 set(Calendar.HOUR_OF_DAY, hour)
-                set(Calendar.MINUTE, minute)
+                set(Calendar.MINUTE, minute - 5)
                 set(Calendar.SECOND, 0)
             }
 
