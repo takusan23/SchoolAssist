@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:icon="@drawable/ic_notifications_24px"
+        android:key="notification_setting"
+        android:summary="この設定をすると次の授業の前に通知を送信します"
+        android:title="次の授業通知設定">
+        <!--Activity起動-->
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="io.github.takusan23.schoolassist.Activity.NotificationSettingActivity"
+            android:targetPackage="io.github.takusan23.schoolassist" />
+    </Preference>
+
+</PreferenceScreen>

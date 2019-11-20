@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_activity_bottom_nav_today_menu"
+        android:icon="@drawable/ic_today_24px"
+        android:title="今日" />
+    <item
+        android:id="@+id/main_activity_bottom_nav_table_menu"
+        android:icon="@drawable/ic_table_chart_24px"
+        android:title="全表示" />
+    <item
+        android:id="@+id/main_activity_bottom_nav_setting_menu"
+        android:icon="@drawable/ic_settings_applications_24px"
+        android:title="設定" />
+</menu>

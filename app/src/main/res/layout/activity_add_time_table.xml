@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddTimeTableActivity">
+    tools:context=".Activity.AddTimeTableActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,7 +59,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -79,7 +79,8 @@
                         android:id="@+id/add_timetable_one_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="一時限目" />
+                        android:hint="一時限目"
+                        android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -90,7 +91,8 @@
                         android:id="@+id/add_timetable_two_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="二時限目" />
+                        android:hint="二時限目"
+                        android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -101,7 +103,8 @@
                         android:id="@+id/add_timetable_tree_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="三時限目" />
+                        android:hint="三時限目"
+                        android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -112,7 +115,8 @@
                         android:id="@+id/add_timetable_four_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="四時限目" />
+                        android:hint="四時限目"
+                        android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -123,7 +127,8 @@
                         android:id="@+id/add_timetable_five_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="五時限目" />
+                        android:hint="五時限目"
+                        android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -134,20 +139,21 @@
                         android:id="@+id/add_timetable_six_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="六時限目" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/add_timetable_after_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="放課後" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                        android:hint="六時限目"
+                        android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/add_timetable_after_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="放課後" />
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 

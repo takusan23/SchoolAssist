@@ -1,6 +1,5 @@
-package io.github.takusan23.schoolassist
+package io.github.takusan23.schoolassist.Activity
 
-import android.content.ContentResolver
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +7,7 @@ import android.os.Bundle
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.textfield.TextInputEditText
 import io.github.takusan23.schoolassist.DataBase.TimeTableSQLiteHelper
+import io.github.takusan23.schoolassist.R
 import kotlinx.android.synthetic.main.activity_add_time_table.*
 import org.json.JSONArray
 
