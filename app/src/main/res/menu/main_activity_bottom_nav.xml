@@ -9,6 +9,10 @@
         android:icon="@drawable/ic_table_chart_24px"
         android:title="全表示" />
     <item
+        android:id="@+id/main_activity_bottom_qr_menu"
+        android:icon="@drawable/ic_share_24px"
+        android:title="QRコード" />
+    <item
         android:id="@+id/main_activity_bottom_nav_setting_menu"
         android:icon="@drawable/ic_settings_applications_24px"
         android:title="設定" />

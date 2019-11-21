@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="このQRコードに時間割が入っています。"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/fragment_qr_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="20sp" />
+
+    <Button
+        android:id="@+id/fragment_qr_camera"
+        android:layout_margin="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ほかの人のQRコードを読み込む" />
+</LinearLayout>
