@@ -10,10 +10,10 @@
 
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="すべての値を入れてないと保存されません" />
+    android:id="@+id/textView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="すべての値を入れてないと保存されません。\nすでに科目が終わってる（現在時刻が2時間目終了後など）では登録後すぐに通知がきますが仕様です。" />
 
     <LinearLayout
         android:id="@+id/activity_notification_parent_linearlayout"

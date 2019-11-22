@@ -9,9 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver android:name=".Receiver.AlarmManagerReceiver"
+        <activity android:name=".Activity.ThisAppActivity"></activity>
+        <activity android:name=".Activity.LicenceActivity" />
+
+        <receiver
+            android:name=".Receiver.AlarmManagerReceiver"
             android:process=":remote" />
-        <activity android:name=".Activity.NotificationSettingActivity" android:label="通知設定"></activity>
+
+        <activity
+            android:name=".Activity.NotificationSettingActivity"
+            android:label="通知設定" />
         <activity android:name=".Activity.AddTimeTableActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import com.google.zxing.integration.android.IntentIntegrator
 import io.github.takusan23.schoolassist.DataBase.TimeTableSQLiteHelper
 import io.github.takusan23.schoolassist.Fragment.AllTimeTableFragment
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-        if (result != null) {
+        if (result.contents != null) {
             //内容が上書きされる
             saveTimeTable(result.contents)
         } else {
@@ -100,7 +101,8 @@ class MainActivity : AppCompatActivity() {
             } else {
                 sqLiteDatabase.insert("timetable_db", null, contentValues)
             }
-            Toast.makeText(this,dayOfWeek+"曜日の取り込み成功",Toast.LENGTH_SHORT).show()
+            Snackbar.make(activity_bottom_nav,dayOfWeek+"曜日の取り込み成功",Snackbar.LENGTH_SHORT).show()
+          //  Toast.makeText(this,dayOfWeek+"曜日の取り込み成功",Toast.LENGTH_SHORT).show()
             cursor.close()
         }
     }

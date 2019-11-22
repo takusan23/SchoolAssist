@@ -2,6 +2,7 @@ package io.github.takusan23.schoolassist
 
 import android.app.AlarmManager
 import android.app.PendingIntent
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -11,17 +12,21 @@ import java.util.*
 
 class SubjectAlarm(val context: Context?) {
 
+    val intentList = arrayListOf<Intent>()
+    val repeatIntent = Intent(context,AlarmManagerReceiver::class.java).apply {
+        putExtra("set",true)
+    }
+
+    init {
+        for (i in 0 until 6){
+            val intent = Intent(context,AlarmManagerReceiver::class.java)
+            intent.putExtra("subject",i)
+            intentList.add(intent)
+        }
+    }
+
     fun init() {
         val alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-
-        //全Cancel
-        //  for (i in 0 until 6) {
-        //      val intent = Intent(context, AlarmManagerReceiver::class.java)
-        //      val pendingIntent =
-        //          PendingIntent.getBroadcast(context, i, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-        //      pendingIntent.cancel()
-        //      alarmManager.cancel(pendingIntent)
-        //  }
 
         val pref_setting = PreferenceManager.getDefaultSharedPreferences(context)
         for (i in 0 until 6) {
@@ -31,18 +36,17 @@ class SubjectAlarm(val context: Context?) {
             val calendar = Calendar.getInstance().apply {
                 timeInMillis = System.currentTimeMillis()
                 set(Calendar.HOUR_OF_DAY, hour)
-                set(Calendar.MINUTE, minute - 5)
+                set(Calendar.MINUTE, minute)
                 set(Calendar.SECOND, 0)
+                add(Calendar.MINUTE, -5)
             }
 
             //AlarmManager
-            val intent = Intent(context, AlarmManagerReceiver::class.java)
-            intent.putExtra("subject", i)
             val pendingIntent =
-                PendingIntent.getBroadcast(context, i, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+                PendingIntent.getBroadcast(context, i, intentList[i], PendingIntent.FLAG_UPDATE_CURRENT)
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                alarmManager.setExactAndAllowWhileIdle(
+                alarmManager.set(
                     AlarmManager.RTC_WAKEUP,
                     calendar.timeInMillis,
                     pendingIntent
@@ -55,6 +59,37 @@ class SubjectAlarm(val context: Context?) {
                 )
             }
         }
+    }
+
+    fun allCancel() {
+        val alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        //全Cancel
+        for (i in 0 until 6) {
+            val pendingIntent =
+                PendingIntent.getBroadcast(context, i, intentList[i], PendingIntent.FLAG_UPDATE_CURRENT)
+            pendingIntent.cancel()
+            alarmManager.cancel(pendingIntent)
+        }
+        val pendingIntent =
+            PendingIntent.getBroadcast(context, 100, repeatIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+        alarmManager.cancel( pendingIntent)
+
+    }
+
+    //日が変わったら再登録するAlarmManagerを登録
+    fun setOneTimeRegister() {
+        val alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val pendingIntent =
+            PendingIntent.getBroadcast(context, 100, repeatIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+        //次の日を計算
+        val calendar = Calendar.getInstance()
+        calendar.timeInMillis = System.currentTimeMillis()
+        calendar.set(Calendar.SECOND, 0)
+        calendar.set(Calendar.MINUTE, 0)
+        calendar.set(Calendar.HOUR_OF_DAY, 0)
+        calendar.add(Calendar.DATE, 1)
+        //一日ごとに再登録
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, 86400000L, pendingIntent)
     }
 
 }

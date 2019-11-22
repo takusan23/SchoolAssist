@@ -13,4 +13,24 @@
             android:targetPackage="io.github.takusan23.schoolassist" />
     </Preference>
 
+    <Preference
+        android:key="alarmmanager_clear"
+        android:summary="次の授業通知を無効にします"
+        android:title="通知を無効にする">
+    </Preference>
+
+
+    <Preference
+        android:key="licence"
+        android:summary="使用したライブラリなど"
+        android:title="ライセンス">
+    </Preference>
+
+    <Preference
+        android:key="this_app"
+        android:summary="takusan_23"
+        android:title="このアプリについて">
+    </Preference>
+
+
 </PreferenceScreen>

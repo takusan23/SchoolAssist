@@ -33,9 +33,17 @@ class AlarmManagerReceiver : BroadcastReceiver() {
         timeTableSQLiteHelper.setWriteAheadLoggingEnabled(false)
 
         //今日
-        subject = intent?.getIntExtra("subject", 0) ?: 0
+        subject = intent?.getIntExtra("subject",0)?:0
         if (getDayOfWeek() != null) {
             loadTimeTable(context, getDayOfWeek())
+        }
+
+        Toast.makeText(context,subject.toString(),Toast.LENGTH_SHORT).show()
+
+        val set = intent?.getBooleanExtra("set",false)?:false
+        if(set){
+            val subjectAlarm = SubjectAlarm(context)
+            subjectAlarm.init()
         }
     }
 

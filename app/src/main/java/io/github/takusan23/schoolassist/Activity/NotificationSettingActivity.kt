@@ -124,6 +124,8 @@ class NotificationSettingActivity : AppCompatActivity() {
             //AlarmManager再設定
             val subjectAlarm = SubjectAlarm(this)
             subjectAlarm.init()
+            //一日ごとにうごくAlarmManagerを登録する
+           // subjectAlarm.setOneTimeRegister()
         }
     }
 

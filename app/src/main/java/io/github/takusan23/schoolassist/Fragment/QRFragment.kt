@@ -48,7 +48,6 @@ class QRFragment :Fragment(){
 
         //QRコード生成
 
-        val writer = QRCodeWriter()
         val encodeHint = mutableMapOf<EncodeHintType, String>()
         encodeHint.put(EncodeHintType.CHARACTER_SET,"shiftjis") //日本語対応させる
 
